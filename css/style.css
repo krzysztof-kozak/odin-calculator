@@ -1,0 +1,123 @@
+.calc {
+	display: grid;
+
+	grid-template:
+		"btn-c btn-c btn-c btn-div" 100px
+		"btn-7 btn-8 btn-9 btn-mul" 100px
+		"btn-4 btn-5 btn-6 btn-sub" 100px
+		"btn-1 btn-2 btn-3 btn-add" 100px
+		"btn-0 btn-0 btn-dot btn-eq" 100px
+		/ 100px 100px 100px 100px;
+
+	width: 400px;
+	height: 400px;
+	margin: 5em auto;
+}
+
+.btn {
+	--border: 1px solid black;
+
+	background-color: var(--pop, #fff);
+
+	border-top: var(--bt, var(--border));
+	border-bottom: var(--bb, var(--border));
+	border-left: var(--bl, var(--border));
+	border-right: var(--br, var(--border));
+
+	cursor: pointer;
+
+	display: grid;
+	place-items: center;
+}
+
+.btn:hover {
+	background-color: #34943494;
+}
+
+.pop {
+	--pop: #ffd90b;
+}
+
+.no-bt {
+	--bt: none;
+}
+
+.no-bb {
+	--bb: none;
+}
+
+.no-bl {
+	--bl: none;
+}
+
+.no-br {
+	--br: none;
+}
+
+.btn-1 {
+	grid-area: btn-1;
+}
+
+.btn-2 {
+	grid-area: btn-2;
+}
+
+.btn-3 {
+	grid-area: btn-3;
+}
+
+.btn-4 {
+	grid-area: btn-4;
+}
+
+.btn-5 {
+	grid-area: btn-5;
+}
+
+.btn-6 {
+	grid-area: btn-6;
+}
+
+.btn-7 {
+	grid-area: btn-7;
+}
+
+.btn-8 {
+	grid-area: btn-8;
+}
+
+.btn-9 {
+	grid-area: btn-9;
+}
+
+.btn-0 {
+	grid-area: btn-0;
+}
+
+.btn-dot {
+	grid-area: btn-dot;
+}
+
+.btn-c {
+	grid-area: btn-c;
+}
+
+.btn-div {
+	grid-area: btn-div;
+}
+
+.btn-mul {
+	grid-area: btn-mul;
+}
+
+.btn-sub {
+	grid-area: btn-sub;
+}
+
+.btn-add {
+	grid-area: btn-add;
+}
+
+.btn-eq {
+	grid-area: btn-eq;
+}
