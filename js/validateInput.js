@@ -25,10 +25,10 @@ function validateInput(target) {
 	}
 
 	/*
-		5. Cannot press an operator immediatelly followed by a dot or vice versa.
-		Examples:
-			2.5 + .25 -> invalid.
-			2. + 2.5 -> invalid.
+	5. Cannot press an operator immediatelly followed by a dot or vice versa.
+	Examples:
+		2.5 + .25 -> invalid.
+		2. + 2.5 -> invalid.
 	*/
 	if (lastPressedButton === "." && isOperator(currentlyPressedButton)) {
 		return false;
@@ -39,10 +39,10 @@ function validateInput(target) {
 	}
 
 	/*
-		6. Only one dot per number.
-		Examples:
-			0.255 -> valid.
-			0.255.5 -> invalid.
+	6. Only one dot per number.
+	Examples:
+		0.255 -> valid.
+		0.255.5 -> invalid.
     */
 	if (userIputHistory.find((btn) => btn === ".") && currentlyPressedButton === ".") {
 		return false;

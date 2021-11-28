@@ -6,8 +6,7 @@ function operate(memory) {
     ['52', '+', '69', '=']
 
     We don't need that last "=" element, so let's get rid of it.
-*/
-
+	*/
 	memory.splice(-1);
 
 	// Let's convert strings to floats.
@@ -17,7 +16,7 @@ function operate(memory) {
 
 	const result = getResult(num1, num2, operator);
 
-	console.log(result);
+	return result;
 }
 
 function getResult(num1, num2, operator) {

@@ -1,8 +1,11 @@
 import updateDisplay from "./updateDisplay.js";
 import validateInput, { isOperator } from "./validateInput.js";
+import verifyClickTarget from "./verifyClickTarget.js";
 import operate from "./operate.js";
+import clearDisplay from "./clearDisplay.js";
 
 const calc = document.querySelector(".calc");
+const display = document.querySelector(".display");
 calc.addEventListener("click", handleClick);
 
 // Only stores valid inputs.
@@ -12,34 +15,11 @@ let memory = [];
 let currentNumber = "";
 
 function handleClick({ target }) {
-	/* 
+	const isValidClickTarget = verifyClickTarget(target);
 
-	TODO:
-
-	1. Basic approach - order of operation not included.
-
-	number1 + number2 * number3;
-	(number1 + number2) * number3;
-	result * number3;
-
-	Example:
-		2 + 3 * 5
-		5 * 5
-		25
-
-
-	2. Desired approach - order of operations included.
-
-	number1 + number2 * number3;
-	number1 + (number2 * number3);
-	number1 + result;
-
-	Example:
-		2 + 3 * 5
-		2 + 15
-		17
-
-*/
+	if (!isValidClickTarget) {
+		return;
+	}
 
 	const isValidInput = validateInput(target);
 
@@ -57,12 +37,16 @@ function handleClick({ target }) {
 	}
 
 	if (target.classList.contains("btn-eq")) {
-		operate(memory);
-		memory = [];
+		const result = operate(memory);
+		clearDisplay(display);
+		updateDisplay(display, result);
+		memory = [result];
 	}
 
-	updateDisplay(target);
+	updateDisplay(display, target.value);
 	userIputHistory.push(target.value);
+
+	console.log(memory);
 }
 
 function composeNumber(digit) {
