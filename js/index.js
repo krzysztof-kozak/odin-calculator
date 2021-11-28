@@ -1,25 +1,13 @@
 import updateDisplay from "./updateDisplay.js";
 import validateInput, { isOperator } from "./validateInput.js";
+import operate from "./operate.js";
 
 const calc = document.querySelector(".calc");
 calc.addEventListener("click", handleClick);
 
 // Only stores valid inputs.
 const userIputHistory = [];
-const memory = [];
-
-/* 
-	1. Build a number out of digits.
-	2. Push the store the number in memory.
-
-	If a user presses 22 + 55
-	
-	the memory should look like this:
-	["22", "+", "55"]
-
-	and not like this:
-	["2", "2", "+", "5", "5"]
-*/
+let memory = [];
 
 let currentNumber = "";
 
@@ -53,18 +41,13 @@ function handleClick({ target }) {
 
 */
 
-	if (target.classList.contains("btn-eq")) {
-		console.log("Operating");
-		return;
-	}
-
 	const isValidInput = validateInput(target);
 
 	if (!isValidInput) {
 		return;
 	}
 
-	if (isOperator(target.value)) {
+	if (isOperator(target.value) || target.value === "=") {
 		memory.push(currentNumber);
 		memory.push(target.value);
 
@@ -73,10 +56,13 @@ function handleClick({ target }) {
 		composeNumber(target.value);
 	}
 
+	if (target.classList.contains("btn-eq")) {
+		operate(memory);
+		memory = [];
+	}
+
 	updateDisplay(target);
 	userIputHistory.push(target.value);
-
-	console.log(memory);
 }
 
 function composeNumber(digit) {
