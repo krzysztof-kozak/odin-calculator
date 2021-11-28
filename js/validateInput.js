@@ -51,7 +51,7 @@ function validateInput(target) {
 	return true;
 }
 
-function isOperator(button) {
+export function isOperator(button) {
 	return ["+", "-", "x", "÷"].includes(button);
 }
 
