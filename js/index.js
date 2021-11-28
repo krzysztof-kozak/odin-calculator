@@ -45,8 +45,6 @@ function handleClick({ target }) {
 
 	updateDisplay(display, target.value);
 	userIputHistory.push(target.value);
-
-	console.log(memory);
 }
 
 function composeNumber(digit) {
