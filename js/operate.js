@@ -36,7 +36,6 @@ function getResult(num1, num2, operator) {
 // [2 + 5 x 10 + 25 - 5 + 20 ÷ 4 x 2 + 1] -> 83
 
 function calculateAllSubOperations(memory) {
-	debugger;
 	// This is a recursive function, see the bottom line.
 	if (memory.length === 1) {
 		return memory[0];

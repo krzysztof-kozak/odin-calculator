@@ -9,15 +9,22 @@ const display = document.querySelector(".display");
 calc.addEventListener("click", handleClick);
 
 // Only stores valid inputs.
-const userIputHistory = [];
+let userIputHistory = [];
 let memory = [];
-
 let currentNumber = "";
 
 function handleClick({ target }) {
 	const isValidClickTarget = verifyClickTarget(target);
 
 	if (!isValidClickTarget) {
+		return;
+	}
+
+	if (target.value === "c") {
+		userIputHistory = [];
+		memory = [];
+		currentNumber = "";
+		clearDisplay(display);
 		return;
 	}
 
