@@ -34,20 +34,30 @@ function handleClick({ target }) {
 		return;
 	}
 
-	if (isOperator(target.value) || target.value === "=") {
-		memory.push(currentNumber);
-		memory.push(target.value);
-
-		currentNumber = "";
-	} else {
+	// pressed a number
+	if (!isOperator(target.value) && target.value !== "=") {
 		composeNumber(target.value);
+
+		// pressed operator
+	} else if (isOperator(target.value)) {
+		debugger;
+		if (typeof memory[memory.length - 1] !== "number") {
+			memory.push(currentNumber);
+		}
+		memory.push(target.value);
+		currentNumber = "";
 	}
 
 	if (target.classList.contains("btn-eq")) {
+		debugger;
+		memory.push(currentNumber);
 		const result = operate(memory);
 		clearDisplay(display);
 		updateDisplay(display, result);
-		memory = [result];
+		currentNumber = memory[0];
+		userIputHistory = [currentNumber];
+
+		return;
 	}
 
 	updateDisplay(display, target.value);

@@ -1,16 +1,5 @@
 function operate(memory) {
-	/* 
-    When user presses the = button, the memory
-    might look something like this:
-    
-    ['52', '+', '69', '=']
-
-    We don't need that last "=" element, so let's get rid of it.
-	*/
-	memory.splice(-1);
-
 	const result = calculateAllSubOperations(memory);
-
 	return result;
 }
 
