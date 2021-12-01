@@ -27,7 +27,6 @@ function handleClick({ target }) {
 		clearDisplay(display);
 		return;
 	}
-
 	const isValidInput = validateInput(target);
 
 	if (!isValidInput) {
@@ -37,7 +36,8 @@ function handleClick({ target }) {
 	// pressed a number (or a minus sign for a negative number)
 	if (
 		(!isOperator(target.value) && target.value !== "=") ||
-		(userIputHistory.length === 0 && target.value === "-")
+		(userIputHistory.length === 0 && target.value === "-") ||
+		(isOperator(memory[memory.length - 1]) && target.value === "-")
 	) {
 		composeNumber(target.value);
 

@@ -4,33 +4,38 @@ function validateInput(target) {
 	const lastPressedButton = userIputHistory[userIputHistory.length - 1];
 	const currentlyPressedButton = target.value;
 
-	// 1. Allow user to input negative numbers
+	// 1. Allow user to start with a negative number
 	if (userIputHistory.length === 0 && currentlyPressedButton === "-") {
 		return true;
 	}
 
-	// 2. First valid input cannot be an operator (unless it's a minus).
+	// 1 Allow user to input negative numbers later in the chain
+	if (isOperator(memory[memory.length - 1]) && currentlyPressedButton === "-") {
+		return true;
+	}
+
+	// First valid input cannot be an operator (unless it's a minus).
 	if (userIputHistory.length === 0 && isOperator(currentlyPressedButton)) {
 		return false;
 	}
 
-	// 3. Cannot press operator twice in a row
+	// Cannot press operator twice in a row
 	if (isOperator(lastPressedButton) && isOperator(currentlyPressedButton)) {
 		return false;
 	}
 
-	// 4. First valid input cannot be a dot.
+	// First valid input cannot be a dot.
 	if (userIputHistory.length === 0 && currentlyPressedButton === ".") {
 		return false;
 	}
 
-	// 5. Cannot press dot twice in a row.
+	// Cannot press dot twice in a row.
 	if (lastPressedButton === "." && currentlyPressedButton === ".") {
 		return false;
 	}
 
 	/*
-	6. Cannot press an operator immediatelly followed by a dot or vice versa.
+	 Cannot press an operator immediatelly followed by a dot or vice versa.
 	Examples:
 		2.5 + .25 -> invalid.
 		2. + 2.5 -> invalid.
