@@ -27,6 +27,7 @@ function handleClick({ target }) {
 		clearDisplay(display);
 		return;
 	}
+
 	const isValidInput = validateInput(target);
 
 	if (!isValidInput) {

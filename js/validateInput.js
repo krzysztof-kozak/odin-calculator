@@ -4,12 +4,21 @@ function validateInput(target) {
 	const lastPressedButton = userIputHistory[userIputHistory.length - 1];
 	const currentlyPressedButton = target.value;
 
-	// 1. Allow user to start with a negative number
+	// Allow user to start with a negative number
 	if (userIputHistory.length === 0 && currentlyPressedButton === "-") {
 		return true;
 	}
 
-	// 1 Allow user to input negative numbers later in the chain
+	// Disallow user to use three minus operators in a row, e.g "5 - - 5" is valid but "5 - - - 5" is not.
+	if (
+		userIputHistory[userIputHistory.length - 1] === "-" &&
+		userIputHistory[userIputHistory.length - 2] === "-" &&
+		currentlyPressedButton === "-"
+	) {
+		return false;
+	}
+
+	// Allow user to input negative numbers later in the chain
 	if (isOperator(memory[memory.length - 1]) && currentlyPressedButton === "-") {
 		return true;
 	}
