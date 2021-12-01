@@ -1,4 +1,4 @@
-import userIputHistory from "./index.js";
+import { userIputHistory, memory } from "./index.js";
 
 function validateInput(target) {
 	const lastPressedButton = userIputHistory[userIputHistory.length - 1];
@@ -44,7 +44,8 @@ function validateInput(target) {
 		0.255 -> valid.
 		0.255.5 -> invalid.
     */
-	if (userIputHistory.find((btn) => btn === ".") && currentlyPressedButton === ".") {
+	if (memory[memory.length - 1] === "." && currentlyPressedButton === ".") {
+		console.log(memory);
 		return false;
 	}
 

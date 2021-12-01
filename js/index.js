@@ -40,7 +40,6 @@ function handleClick({ target }) {
 
 		// pressed operator
 	} else if (isOperator(target.value)) {
-		debugger;
 		if (typeof memory[memory.length - 1] !== "number") {
 			memory.push(currentNumber);
 		}
@@ -49,7 +48,6 @@ function handleClick({ target }) {
 	}
 
 	if (target.classList.contains("btn-eq")) {
-		debugger;
 		memory.push(currentNumber);
 		const result = operate(memory);
 		clearDisplay(display);
@@ -68,4 +66,4 @@ function composeNumber(digit) {
 	currentNumber += digit;
 }
 
-export default userIputHistory;
+export { userIputHistory, memory };
