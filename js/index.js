@@ -34,8 +34,11 @@ function handleClick({ target }) {
 		return;
 	}
 
-	// pressed a number
-	if (!isOperator(target.value) && target.value !== "=") {
+	// pressed a number (or a minus sign for a negative number)
+	if (
+		(!isOperator(target.value) && target.value !== "=") ||
+		(userIputHistory.length === 0 && target.value === "-")
+	) {
 		composeNumber(target.value);
 
 		// pressed operator
@@ -58,8 +61,8 @@ function handleClick({ target }) {
 		return;
 	}
 
-	updateDisplay(display, target.value);
 	userIputHistory.push(target.value);
+	updateDisplay(display, target.value);
 }
 
 function composeNumber(digit) {
