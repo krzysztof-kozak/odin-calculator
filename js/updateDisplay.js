@@ -22,7 +22,7 @@ function updateDisplay(display, value) {
 		return;
 	}
 
-	if (memory.at(-1) !== "-") {
+	if (!isOperator(memory.at(-1))) {
 		isConstructingNegativeNumber = false;
 	}
 
