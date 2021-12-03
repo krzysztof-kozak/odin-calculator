@@ -28,7 +28,13 @@ function handleClick({ target }) {
 		memory = [];
 		currentNumber = "";
 		clearDisplay(mainDisplay);
+		clearDisplay(topDisplay);
+		clearDisplay(history);
 		return;
+	}
+
+	if (currentNumber === "Invalid operation") {
+		clearDisplay(mainDisplay);
 	}
 
 	const isValidInput = validateInput(target);
