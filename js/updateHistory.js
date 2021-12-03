@@ -1,4 +1,5 @@
 import { history } from "./index.js";
+import { isNegative } from "./updateDisplay.js";
 
 function updateHistory(memory, result) {
 	const historyItem = document.createElement("div");
@@ -8,7 +9,7 @@ function updateHistory(memory, result) {
 	historyItem.classList.add("history__item");
 	topParagraph.classList.add("item-top");
 
-	topParagraph.textContent = memory.join(" ");
+	topParagraph.textContent = memory.map((el) => (el = isNegative(el) ? `(${el})` : el)).join(" ");
 	bottomParagraph.textContent = result;
 
 	historyItem.appendChild(topParagraph);

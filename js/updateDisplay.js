@@ -44,7 +44,8 @@ function isOperator(value) {
 	return ["+", "-", "x", "÷"].includes(value);
 }
 
-function isNegative(el) {
+export function isNegative(el) {
 	return el.length > 1 && el.includes("-");
 }
+
 export default updateDisplay;
