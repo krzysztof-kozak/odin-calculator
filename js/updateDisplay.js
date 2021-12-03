@@ -1,4 +1,4 @@
-import { userIputHistory } from "./index.js";
+import { userIputHistory, memory } from "./index.js";
 
 let isConstructingNegativeNumber = false;
 
@@ -19,6 +19,10 @@ function updateDisplay(display, value) {
 		isConstructingNegativeNumber = true;
 		display.textContent = [...display.textContent, "(", value, ")"].join("");
 		return;
+	}
+
+	if (memory.at(-1) !== "-") {
+		isConstructingNegativeNumber = false;
 	}
 
 	if (isConstructingNegativeNumber && !isOperator(value)) {
