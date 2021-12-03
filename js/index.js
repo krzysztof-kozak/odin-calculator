@@ -44,7 +44,7 @@ function handleClick({ target }) {
 			(currentNumber === "" || currentNumber === "-"))
 	) {
 		// entered a new number, previous result is removed
-		if (memory.length === 1) {
+		if (memory.length === 1 || currentNumber === "Invalid operation") {
 			memory = [];
 			currentNumber = "";
 			clearDisplay(mainDisplay);
@@ -63,11 +63,11 @@ function handleClick({ target }) {
 	if (target.classList.contains("btn-eq")) {
 		memory.push(currentNumber);
 
-		const isValidOperation = memory.every((el) => !!el);
+		const isValidOperation = memory.every((el) => el !== "") && memory.length >= 3;
 
 		if (!isValidOperation) {
-			memory = [];
-			currentNumber = "";
+			memory = [""];
+			currentNumber = "Invalid operation";
 
 			clearDisplay(mainDisplay);
 			updateDisplay(mainDisplay, "Invalid operation");
