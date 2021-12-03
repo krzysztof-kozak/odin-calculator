@@ -1,4 +1,5 @@
 import updateDisplay from "./updateDisplay.js";
+import updateHistory from "./updateHistory.js";
 import validateInput, { isOperator } from "./validateInput.js";
 import verifyClickTarget from "./verifyClickTarget.js";
 import operate from "./operate.js";
@@ -7,6 +8,7 @@ import clearDisplay from "./clearDisplay.js";
 const calc = document.querySelector(".calc");
 const mainDisplay = document.querySelector(".display > .main");
 const topDisplay = document.querySelector(".display > .top");
+const history = document.querySelector(".history");
 calc.addEventListener("click", handleClick);
 
 // Only stores valid inputs.
@@ -62,6 +64,7 @@ function handleClick({ target }) {
 
 	if (target.classList.contains("btn-eq")) {
 		memory.push(currentNumber);
+		const memoryBeforeOperation = [...memory];
 
 		const isValidOperation = memory.every((el) => el !== "") && memory.length >= 3;
 
@@ -82,6 +85,8 @@ function handleClick({ target }) {
 		currentNumber = memory[0];
 		userIputHistory = [currentNumber];
 
+		updateHistory(memoryBeforeOperation, result);
+
 		return;
 	}
 
@@ -93,4 +98,4 @@ function composeNumber(digit) {
 	currentNumber += digit;
 }
 
-export { userIputHistory, memory };
+export { userIputHistory, memory, history };
