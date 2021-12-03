@@ -5,7 +5,8 @@ import operate from "./operate.js";
 import clearDisplay from "./clearDisplay.js";
 
 const calc = document.querySelector(".calc");
-const display = document.querySelector(".display");
+const mainDisplay = document.querySelector(".display > .main");
+const topDisplay = document.querySelector(".display > .top");
 calc.addEventListener("click", handleClick);
 
 // Only stores valid inputs.
@@ -24,7 +25,7 @@ function handleClick({ target }) {
 		userIputHistory = [];
 		memory = [];
 		currentNumber = "";
-		clearDisplay(display);
+		clearDisplay(mainDisplay);
 		return;
 	}
 
@@ -54,9 +55,10 @@ function handleClick({ target }) {
 
 	if (target.classList.contains("btn-eq")) {
 		memory.push(currentNumber);
+		updateDisplay(topDisplay, memory);
 		const result = operate(memory);
-		clearDisplay(display);
-		updateDisplay(display, result);
+		clearDisplay(mainDisplay);
+		updateDisplay(mainDisplay, result);
 		currentNumber = memory[0];
 		userIputHistory = [currentNumber];
 
@@ -64,7 +66,7 @@ function handleClick({ target }) {
 	}
 
 	userIputHistory.push(target.value);
-	updateDisplay(display, target.value);
+	updateDisplay(mainDisplay, target.value);
 }
 
 function composeNumber(digit) {
