@@ -164,4 +164,29 @@ body {
 	border: 1px solid black;
 	border-left: var(--bl, var(--border));
 	grid-area: history;
+	display: grid;
+	place-items: start end;
+	grid-auto-rows: min-content;
+	overflow: auto;
+}
+
+.history__item {
+	--weight: lighter;
+	--size: 1rem;
+
+	display: grid;
+	width: 100%;
+	padding: 0.2em;
+	justify-items: end;
+	background-color: #f5f5f5;
+	font-size: 1.5rem;
+}
+
+.item-top {
+	font-weight: var(--weight, normal);
+	font-size: var(--size, inherit);
+}
+
+.history__item:nth-child(2n) {
+	background-color: #eeeeee;
 }
