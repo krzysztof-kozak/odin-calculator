@@ -1,4 +1,5 @@
 function operate(memory) {
+	console.log(memory);
 	const result = calculateAllSubOperations(memory);
 	return result;
 }
@@ -21,8 +22,6 @@ function getResult(num1, num2, operator) {
 			break;
 	}
 }
-
-// [2 + 5 x 10 + 25 - 5 + 20 ÷ 4 x 2 + 1] -> 83
 
 function calculateAllSubOperations(memory) {
 	// This is a recursive function, see the bottom line.
