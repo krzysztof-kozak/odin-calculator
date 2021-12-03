@@ -17,14 +17,14 @@ function updateDisplay(display, value) {
 	const previousInput = userIputHistory.at(-2);
 	if (isOperator(previousInput) && value === "-") {
 		isConstructingNegativeNumber = true;
-		display.textContent = [...display.textContent, "(", value, ")"].join(" ");
+		display.textContent = [...display.textContent, "(", value, ")"].join("");
 		return;
 	}
 
 	if (isConstructingNegativeNumber && !isOperator(value)) {
-		const copy = display.textContent.split(" ");
-		copy.splice(-1, 0, value).join(" ");
-		display.textContent = copy.join(" ");
+		const copy = [...display.textContent];
+		copy.splice(-1, 0, value).join("");
+		display.textContent = copy.join("");
 		return;
 	}
 

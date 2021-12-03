@@ -1,5 +1,14 @@
 function operate(memory) {
-	const result = calculateAllSubOperations(memory);
+	let result = calculateAllSubOperations(memory);
+
+	if (result.toString().includes(".")) {
+		result = parseFloat(result.toFixed(5), 10);
+	}
+
+	if (result >= 1e12) {
+		result = result.toExponential(5);
+	}
+
 	return result;
 }
 
