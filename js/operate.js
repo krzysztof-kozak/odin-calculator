@@ -6,6 +6,10 @@ function operate(memory) {
 }
 
 function getResult(num1, num2, operator) {
+	if (num2 === 0 && operator === "÷") {
+		return "Division by zero!";
+	}
+
 	switch (operator) {
 		case "+":
 			return num1 + num2;
