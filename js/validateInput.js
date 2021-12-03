@@ -9,10 +9,10 @@ function validateInput(target) {
 		return true;
 	}
 
-	// Disallow user to use three minus operators in a row, e.g "5 - - 5" is valid but "5 - - - 5" is not.
+	// Disallow user to use three operators in a row, e.g "5 + - 5" is valid but "5 + - - 5" is not.
 	if (
-		userIputHistory[userIputHistory.length - 1] === "-" &&
-		userIputHistory[userIputHistory.length - 2] === "-" &&
+		isOperator(userIputHistory[userIputHistory.length - 1]) &&
+		isOperator(userIputHistory[userIputHistory.length - 2]) &&
 		currentlyPressedButton === "-"
 	) {
 		return false;
