@@ -1,19 +1,30 @@
-/* TODO: FIX CALC STYLE */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: grid;
+	place-items: center;
+}
 
 .calc {
 	display: grid;
 
 	grid-template:
-		"btn-c btn-c btn-c btn-div" 100px
-		"btn-7 btn-8 btn-9 btn-mul" 100px
-		"btn-4 btn-5 btn-6 btn-sub" 100px
-		"btn-1 btn-2 btn-3 btn-add" 100px
-		"btn-0 btn-0 btn-dot btn-eq" 100px
-		/ 100px 100px 100px 100px;
+		"displ displ displ displ history" 1.5fr
+		"btn-c btn-c btn-c btn-div history" 1fr
+		"btn-7 btn-8 btn-9 btn-mul history" 1fr
+		"btn-4 btn-5 btn-6 btn-sub history" 1fr
+		"btn-1 btn-2 btn-3 btn-add history" 1fr
+		"btn-0 btn-0 btn-dot btn-eq history" 1fr
+		/ 1fr 1fr 1fr 1fr 3fr;
 
-	width: 400px;
-	height: 400px;
-	margin: 3em auto;
+	width: 80vmin;
+	height: 80vmin;
+
+	max-width: 800px;
+	max-height: 800px;
 }
 
 .btn {
@@ -125,10 +136,15 @@
 }
 
 .display {
-	border: 1px solid black;
-	max-width: 500px;
-	min-height: 100px;
-	margin: 0 auto;
 	display: grid;
 	place-items: center;
+	grid-area: displ;
+	border: 1px solid black;
+	border-bottom: var(--bt, var(--border));
+}
+
+.history {
+	border: 1px solid black;
+	border-left: var(--bl, var(--border));
+	grid-area: history;
 }
