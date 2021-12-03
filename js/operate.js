@@ -1,5 +1,6 @@
 function operate(memory) {
 	console.log(memory);
+
 	const result = calculateAllSubOperations(memory);
 	return result;
 }

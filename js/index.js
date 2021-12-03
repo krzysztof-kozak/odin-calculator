@@ -34,6 +34,7 @@ function handleClick({ target }) {
 	if (!isValidInput) {
 		return;
 	}
+
 	// pressed a number (or a minus sign for a negative number)
 	if (
 		(!isOperator(target.value) && target.value !== "=") ||
@@ -42,6 +43,12 @@ function handleClick({ target }) {
 			target.value === "-" &&
 			(currentNumber === "" || currentNumber === "-"))
 	) {
+		// entered a new number, previous result is removed
+		if (memory.length === 1) {
+			memory = [];
+			currentNumber = "";
+			clearDisplay(mainDisplay);
+		}
 		composeNumber(target.value);
 
 		// pressed operator
@@ -55,6 +62,19 @@ function handleClick({ target }) {
 
 	if (target.classList.contains("btn-eq")) {
 		memory.push(currentNumber);
+
+		const isValidOperation = memory.every((el) => !!el);
+
+		if (!isValidOperation) {
+			memory = [];
+			currentNumber = "";
+
+			clearDisplay(mainDisplay);
+			updateDisplay(mainDisplay, "Invalid operation");
+
+			return;
+		}
+
 		updateDisplay(topDisplay, memory);
 		const result = operate(memory);
 		clearDisplay(mainDisplay);
