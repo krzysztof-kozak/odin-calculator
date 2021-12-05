@@ -19,18 +19,30 @@ View the deployed project at [Github Pages](https://krzysztof-kozak.github.io/od
 - Smart parenthesis when using the back button.
 - Exponential notation for large numbers.
 
-<figure>
-<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/negativeNumbers.gif" alt="inputing numbers on a calculator" style="width:100%">
-<figcaption><b>Smart parenthesis when inputing negative numbers.</b></figcaption>
-</figure>
+---
+<br>
+<br>
 
-<figure>
-<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/smartParen.gif" alt="deleting numbers on a calculator" style="width:100%">
-<figcaption><b>Smart parenthesis when using the back button.</b></figcaption>
-</figure>
+<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/negativeNumbers.gif" alt="inputing numbers on a calculator" style="width:60%">
 
-<figure>
-<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/exponent.gif" alt="inputing large numbers on a calculator" style="width:100%">
-<figcaption><b>Exponential notation for large numbers.</b></figcaption>
-</figure>
+<b>Smart parenthesis when inputing negative numbers.</b>
+
+<br>
+<br>
+
+<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/smartParen.gif" alt="deleting numbers on a calculator" style="width:60%">
+
+<b>Smart parenthesis when using the back button </b>
+
+<br>
+<br>
+
+<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/exponent.gif" alt="inputing large numbers on a calculator" style="width:60%">
+
+<b>Exponential notation for large numbers.</b>
+
+
+
+
+
 
