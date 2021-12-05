@@ -17,5 +17,20 @@ View the deployed project at [Github Pages](https://krzysztof-kozak.github.io/od
 - Can input negative numbers, e.g. 5 - (-5) + 2 - (-3).
 - Smart parenthesis when inputing negative numbers.
 - Smart parenthesis when using the back button.
-- Exponention notation for large numbers.
-  
+- Exponential notation for large numbers.
+
+<figure>
+<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/negativeNumbers.gif" alt="inputing numbers on a calculator" style="width:100%">
+<figcaption><b>Smart parenthesis when inputing negative numbers.</b></figcaption>
+</figure>
+
+<figure>
+<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/smartParen.gif" alt="deleting numbers on a calculator" style="width:100%">
+<figcaption><b>Smart parenthesis when using the back button.</b></figcaption>
+</figure>
+
+<figure>
+<img src="https://raw.githubusercontent.com/krzysztof-kozak/odin-calculator/main/exponent.gif" alt="inputing large numbers on a calculator" style="width:100%">
+<figcaption><b>Exponential notation for large numbers.</b></figcaption>
+</figure>
+
