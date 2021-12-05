@@ -149,7 +149,7 @@ body {
 
 .display {
 	display: grid;
-	grid-template-rows: 50px 1fr;
+	grid-template-rows: min-content 1fr;
 	place-items: center end;
 	grid-area: displ;
 
@@ -173,7 +173,7 @@ body {
 
 @media (max-width: 800px) {
 	.main {
-		font-size: clamp(0.8rem, 2.5vw, 2rem);
+		font-size: clamp(1rem, 6.5vw, 2rem);
 	}
 
 	.top {
