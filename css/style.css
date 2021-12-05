@@ -222,3 +222,14 @@ body {
 .history__item:nth-child(2n) {
 	background-color: #eeeeee;
 }
+
+.flex-container {
+    align-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.github-icon {
+    cursor: pointer;
+}
