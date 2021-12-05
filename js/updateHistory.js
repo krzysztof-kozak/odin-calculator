@@ -7,7 +7,9 @@ function updateHistory(memory, result) {
 	const bottomParagraph = document.createElement("p");
 
 	historyItem.classList.add("history__item");
+
 	topParagraph.classList.add("item-top");
+	bottomParagraph.classList.add("item-bottom");
 
 	topParagraph.textContent = memory.map((el) => (el = isNegative(el) ? `(${el})` : el)).join(" ");
 	bottomParagraph.textContent = result;

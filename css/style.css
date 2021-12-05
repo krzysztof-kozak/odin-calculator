@@ -215,6 +215,10 @@ body {
 	font-size: var(--size, inherit);
 }
 
+.item-bottom {
+	font-weight: var(--fw-thin);
+}
+
 .history__item:nth-child(2n) {
 	background-color: #eeeeee;
 }
