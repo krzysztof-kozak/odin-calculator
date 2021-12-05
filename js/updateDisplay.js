@@ -1,8 +1,4 @@
-import { userIputHistory, memory } from "./index.js";
-
-let isConstructingNegativeNumber = false;
-
-function updateDisplay(display, value) {
+function updateDisplay(display, value, isConstructingNegativeNumber) {
 	/* 
 	put negative numbers into parenthesis, e.g.:
 	9 - -5 becomes 9 - (-5)
@@ -15,26 +11,16 @@ function updateDisplay(display, value) {
 	}
 
 	// dynamicaly put negative numbers int parenhesis as they are being constructed
-	const previousInput = userIputHistory.at(-2);
-	if (isOperator(previousInput) && value === "-") {
-		isConstructingNegativeNumber = true;
+	if (isConstructingNegativeNumber && isOperator(value)) {
 		display.textContent = [...display.textContent, "(", value, ")"].join("");
 		return;
 	}
 
-	if (!isOperator(memory.at(-1))) {
-		isConstructingNegativeNumber = false;
-	}
-
-	if (isConstructingNegativeNumber && !isOperator(value)) {
+	if (isConstructingNegativeNumber) {
 		const copy = [...display.textContent];
 		copy.splice(-1, 0, value).join("");
 		display.textContent = copy.join("");
 		return;
-	}
-
-	if (isConstructingNegativeNumber && isOperator(value)) {
-		isConstructingNegativeNumber = false;
 	}
 
 	display.textContent += value;
