@@ -1,3 +1,11 @@
+:root {
+	--ff-primary: "Lato", sans-serif;
+	--ff-secondary: "Mukta", sans-serif;
+
+	--fw-bold: 700;
+	--fw-thin: 200;
+}
+
 html,
 body {
 	height: 100%;
@@ -6,6 +14,8 @@ body {
 body {
 	display: grid;
 	place-items: center;
+
+	font-family: var(--ff-primary);
 	font-size: 2rem;
 }
 
@@ -158,6 +168,7 @@ body {
 
 .main {
 	font-size: 2rem;
+	font-weight: var(--fw-bold);
 }
 
 @media (max-width: 800px) {
@@ -181,15 +192,14 @@ body {
 }
 
 .history__item {
-	--weight: lighter;
 	--size: 1rem;
-
 	display: grid;
 	width: 100%;
 	padding: 0.4em 0.2em;
 	justify-items: end;
 	background-color: #f5f5f5;
 	font-size: 1.5rem;
+	color: rgb(0 0 0 / 85%);
 }
 
 @media (max-width: 800px) {
@@ -200,7 +210,8 @@ body {
 }
 
 .item-top {
-	font-weight: var(--weight, normal);
+	font-family: var(--ff-secondary);
+	font-weight: var(--fw-thin);
 	font-size: var(--size, inherit);
 }
 
