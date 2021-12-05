@@ -64,7 +64,7 @@ function handleClick({ target }) {
 		clearDisplay(mainDisplay);
 	}
 
-	const isValidInput = validateInput(target);
+	const isValidInput = validateInput(target.value, currentNumber);
 
 	if (!isValidInput) {
 		return;
@@ -86,7 +86,7 @@ function handleClick({ target }) {
 		}
 		composeNumber(target.value);
 
-		// pressed operator
+		// pressed an operator
 	} else if (isOperator(target.value)) {
 		if (typeof memory[memory.length - 1] !== "number") {
 			memory.push(currentNumber);

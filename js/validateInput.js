@@ -1,8 +1,7 @@
 import { userIputHistory, memory } from "./index.js";
 
-function validateInput(target) {
+function validateInput(currentlyPressedButton, currentNumber) {
 	const lastPressedButton = userIputHistory[userIputHistory.length - 1];
-	const currentlyPressedButton = target.value;
 
 	// Allow user to start with a negative number
 	if (userIputHistory.length === 0 && currentlyPressedButton === "-") {
@@ -63,8 +62,8 @@ function validateInput(target) {
 		0.255 -> valid.
 		0.255.5 -> invalid.
     */
-	if (memory[memory.length - 1] === "." && currentlyPressedButton === ".") {
-		console.log(memory);
+
+	if (currentNumber.toString().includes(".") && currentlyPressedButton === ".") {
 		return false;
 	}
 
