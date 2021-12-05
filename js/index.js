@@ -119,7 +119,14 @@ function handleClick({ target }) {
 			return;
 		}
 
+		// valid input ["5", "+", "2"]
+		// invalid input ["5", "+", "2", "+"]
+		if (memory.length % 2 === 0) {
+			return;
+		}
+
 		updateDisplay(topDisplay, memory);
+
 		const result = operate(memory);
 		clearDisplay(mainDisplay);
 		updateDisplay(mainDisplay, result);
